@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellok8s
+  labels:
+    app: hellok8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hellok8s
+      task: hellok8s
+  template:
+    metadata:
+      labels:
+        app: hellok8s
+        task: hellok8s
+    spec:
+      containers:
+        - name: hellok8s
+          image: evincai/hellok8s:latest
+          resources:
+            requests:
+              memory: "1024Mi"
+          ports:
+            - containerPort: 80

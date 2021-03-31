@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellok8s
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: hellok8s
+    task: hellok8s
+  sessionAffinity: None
+  type: LoadBalancer
